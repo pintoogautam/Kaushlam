@@ -152,7 +152,6 @@ return [
          * Package Service Providers...
          */
 
-        Webwizo\Shortcodes\ShortcodesServiceProvider::class,
         
         /*
          * Application Service Providers...
@@ -162,7 +161,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\ShortcodesServiceProvider::class,
+        Gornymedia\Shortcodes\ShortcodesServiceProvider::class,
+        App\Providers\ShortSSServiceProvider::class,
 
     ],
 
@@ -212,7 +212,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Shortcode' => Webwizo\Shortcodes\Facades\Shortcode::class,
+        'Shortcode' => Gornymedia\Shortcodes\Facades\Shortcode::class,
+        'Short' => App\Providers\ShortSSServiceProvider::class,
 
     ],
 

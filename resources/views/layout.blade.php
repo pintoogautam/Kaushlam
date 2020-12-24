@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
     />
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
   </head>
 
   <body>

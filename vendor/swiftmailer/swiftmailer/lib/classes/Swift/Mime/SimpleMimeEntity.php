@@ -164,6 +164,16 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
     }
 
     /**
+     * Get the Body Content-type of this entity.
+     *
+     * @return string
+     */
+    public function getBodyContentType()
+    {
+        return $this->userContentType;
+    }
+
+    /**
      * Set the Content-type of this entity.
      *
      * @param string $type
@@ -370,7 +380,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
         }
 
         $this->body = $body;
-        if (isset($contentType)) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
 
@@ -624,7 +634,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
      */
     protected function fixHeaders()
     {
-        if (count($this->immediateChildren)) {
+        if (\count($this->immediateChildren)) {
             $this->setHeaderParameter('Content-Type', 'boundary',
                 $this->getBoundary()
                 );
@@ -768,7 +778,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
             $sorted = [];
             foreach ($this->immediateChildren as $child) {
                 $type = $child->getContentType();
-                $level = array_key_exists($type, $this->alternativePartOrder) ? $this->alternativePartOrder[$type] : max($this->alternativePartOrder) + 1;
+                $level = \array_key_exists($type, $this->alternativePartOrder) ? $this->alternativePartOrder[$type] : max($this->alternativePartOrder) + 1;
 
                 if (empty($sorted[$level])) {
                     $sorted[$level] = [];

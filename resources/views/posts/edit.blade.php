@@ -24,6 +24,9 @@
         <div class="control">
             <textarea name="content" class="textarea" placeholder="Content" minlength="5" maxlength="2000" required rows="10">{{ $post->content }}</textarea>
         </div>
+        <script>
+                        CKEDITOR.replace( 'content' );
+                </script>
     </div>
 
     <div class="field">
